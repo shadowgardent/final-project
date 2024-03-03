@@ -8,14 +8,18 @@ namespace WinFormsApp1
 {
     public class customer : Ticket
     {
-        public string gender;
-        public int price;
+        private string gender;
+        private int price;
+
+        public string Gender { get => gender; set => gender = value; }
+        public int Price { get => price; set => price = value; }
 
         public customer(string gender, int price , DateTime tm):base(tm)
         {
-            this.gender = gender;
-            this.price = price;
+            this.Gender = gender;
+            this.Price = price;
         }
+        
 
         
     }

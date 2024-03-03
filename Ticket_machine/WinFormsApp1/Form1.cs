@@ -133,8 +133,8 @@ namespace WinFormsApp1
 
                 foreach (customer cu in customerList)
                 {
-                    gender = cu.gender;
-                    price = cu.price;
+                    gender = cu.Gender;
+                    price = cu.Price;
                 }
             }
         }

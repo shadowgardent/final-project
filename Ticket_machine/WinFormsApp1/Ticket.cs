@@ -29,7 +29,7 @@ namespace WinFormsApp1
             string content = string.Empty;  
             foreach ( customer s in customers )
             {
-                content += string.Format("{0},{1},{2}\n",s.gender,s.price,s.tm.ToString("MM/dd/yyyy"));
+                content += string.Format("{0},{1},{2}\n",s.Gender,s.Price,s.tm.ToString("MM/dd/yyyy"));
             }
             File.WriteAllText(path, content);
             return true;
