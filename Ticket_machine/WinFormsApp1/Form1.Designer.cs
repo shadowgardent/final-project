@@ -34,14 +34,14 @@
             TK = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            GENDER = new TextBox();
-            price = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             save = new Button();
             button1 = new Button();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -96,24 +96,10 @@
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
             // 
-            // GENDER
-            // 
-            GENDER.Location = new Point(648, 240);
-            GENDER.Name = "GENDER";
-            GENDER.Size = new Size(100, 23);
-            GENDER.TabIndex = 6;
-            // 
-            // price
-            // 
-            price.Location = new Point(648, 269);
-            price.Name = "price";
-            price.Size = new Size(100, 23);
-            price.TabIndex = 7;
-            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(673, 215);
+            label1.Location = new Point(668, 229);
             label1.Name = "label1";
             label1.Size = new Size(58, 15);
             label1.TabIndex = 8;
@@ -131,7 +117,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(614, 248);
+            label3.Location = new Point(617, 261);
             label3.Name = "label3";
             label3.Size = new Size(25, 15);
             label3.TabIndex = 10;
@@ -140,7 +126,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(614, 272);
+            label4.Location = new Point(617, 285);
             label4.Name = "label4";
             label4.Size = new Size(29, 15);
             label4.TabIndex = 11;
@@ -148,7 +134,7 @@
             // 
             // save
             // 
-            save.Location = new Point(648, 298);
+            save.Location = new Point(651, 311);
             save.Name = "save";
             save.Size = new Size(100, 23);
             save.TabIndex = 12;
@@ -166,19 +152,39 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(651, 257);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(100, 23);
+            comboBox1.TabIndex = 14;
+            comboBox1.Text = "Gender";
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(651, 282);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(100, 23);
+            comboBox2.TabIndex = 14;
+            comboBox2.Text = "Price";
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
             Controls.Add(button1);
             Controls.Add(save);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(price);
-            Controls.Add(GENDER);
             Controls.Add(pictureBox1);
             Controls.Add(TK);
             Controls.Add(TM);
@@ -199,13 +205,13 @@
         private Button TK;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private TextBox GENDER;
-        private TextBox price;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
         private Button save;
         private Button button1;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
     }
 }

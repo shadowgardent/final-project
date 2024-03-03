@@ -15,3 +15,4 @@ D:\Github\final project\Ticket_machine\WinFormsApp1\obj\Debug\net8.0-windows\Win
 D:\Github\final project\Ticket_machine\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.genruntimeconfig.cache
 D:\Github\final project\Ticket_machine\WinFormsApp1\obj\Debug\net8.0-windows\ref\WinFormsApp1.dll
 D:\Github\final project\Ticket_machine\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Properties.Resources.resources
+D:\Github\final project\Ticket_machine\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.sourcelink.json

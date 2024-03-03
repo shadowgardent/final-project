@@ -11,6 +11,13 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             Control = new Control();
+            comboBox1.Items.Add("Male");
+            comboBox1.Items.Add("Female");
+            comboBox1.Items.Add("Other");
+            comboBox2.Items.Add(60);
+            comboBox2.Items.Add(70);
+            comboBox2.Items.Add(90);
+
         }
 
         private void Show_all()
@@ -20,28 +27,40 @@ namespace WinFormsApp1
             TM.Show();
         }
 
-        private void clear_all()
+        private void clearall()
         {
-            price.Text = string.Empty;
-            GENDER.Text = string.Empty;
+            
+            comboBox1.Text = "Gender";
+            comboBox2.Text = "Price";
         }
+
+        private void change(int price , int ticket)
+        {
+            int change = price - ticket;
+            MessageBox.Show($"Your change = {change}");
+        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool canbuy = Control.buyticketnr();
+            int price = (int)comboBox2.SelectedItem;
+            bool canbuy = Control.buyticketnr(price);
             if (canbuy)
             {
                 pictureBox1.Image = Properties.Resources.normalTicket;
 
-                if (int.Parse(price.Text) >= (int)TicketType.View_tickets)
+                if (price == Control.View_tickets)
                 {
                     MessageBox.Show("Buy suc");
                     Show_all();
-                    clear_all();
+                    clearall();
                 }
                 else
                 {
-                    MessageBox.Show("Please enter the correct amount.");
+                    MessageBox.Show("Buy suc");
+                    change(price , Control.View_tickets);
+                    clearall();
+
                 }
 
             }
@@ -54,22 +73,25 @@ namespace WinFormsApp1
 
         private void TK_Click(object sender, EventArgs e)
         {
-            bool canbuy = Control.buyticket();
+            int price = (int)comboBox2.SelectedItem;
+            bool canbuy = Control.buyticket(price);
             if (canbuy)
             {
 
 
                 pictureBox1.Image = Properties.Resources.VIPTicket;
 
-                if (int.Parse(price.Text) == (int)TicketType.VIP_Ticket)
+                if (price == Control.VIP_Ticket)
                 {
                     MessageBox.Show("Buy suc");
                     Show_all();
-                    clear_all();
+                    clearall();
                 }
                 else
                 {
-                    MessageBox.Show("Please enter the correct amount.");
+                    MessageBox.Show("Buy suc");
+                    change(price, Control.VIP_Ticket);
+                    clearall();
                 }
 
             }
@@ -81,20 +103,23 @@ namespace WinFormsApp1
 
         private void TM_Click(object sender, EventArgs e)
         {
-            bool canbuy = Control.buyticket();
+            int price = (int)comboBox2.SelectedItem;
+            bool canbuy = Control.buyticketst(price);
             if (canbuy)
             {
                 pictureBox1.Image = Properties.Resources.standingTicket;
 
-                if (int.Parse(price.Text) >= (int)TicketType.Standing_viewing)
+                if (price == Control.Standing_viewing)
                 {
                     MessageBox.Show("Buy suc");
                     Show_all();
-                    clear_all();
+                    clearall();
                 }
                 else
                 {
-                    MessageBox.Show("Please enter the correct amount.");
+                    MessageBox.Show("Buy suc");
+                    change(price, Control.Standing_viewing);
+                    clearall();
                 }
 
 
@@ -113,8 +138,8 @@ namespace WinFormsApp1
 
         private void save_Click(object sender, EventArgs e)
         {
-            string gender = this.GENDER.Text;
-            int price = int.Parse(this.price.Text);
+            string gender = comboBox1.SelectedItem.ToString();
+            int price = (int)comboBox2.SelectedItem;
 
 
             customer customer = new customer(gender, price, ticket.time_stamp());
@@ -142,6 +167,22 @@ namespace WinFormsApp1
         private void button1_Click_1(object sender, EventArgs e)
         {
             bool s = ticket.WriteF(customerList);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GENDER_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

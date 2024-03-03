@@ -10,12 +10,13 @@ namespace WinFormsApp1
     public class Control : Ticket
     {
 
-        int tricket = 20;
-        int price = 90;
+       private int standing_viewing = 60, view_tickets = 70, vip_Ticket = 90;
 
+        public int Standing_viewing { get => standing_viewing; set => standing_viewing = value; }
+        public int View_tickets { get => view_tickets; set => view_tickets = value; }
+        public int VIP_Ticket { get => vip_Ticket; set => vip_Ticket = value; }
 
-
-        public bool buyticket()
+        public bool buyticket(int price)
         {
             if (price >= 90 )
             {
@@ -29,7 +30,7 @@ namespace WinFormsApp1
                 return false;
             }
         }
-        public bool buyticketnr()
+        public bool buyticketnr(int price)
         {
             if (price >= 70)
             {
@@ -43,7 +44,7 @@ namespace WinFormsApp1
             }
         }
 
-        public bool buyticketst()
+        public bool buyticketst(int price)
         {
             if (price >= 60)
             {

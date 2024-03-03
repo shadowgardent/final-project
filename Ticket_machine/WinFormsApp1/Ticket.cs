@@ -29,18 +29,14 @@ namespace WinFormsApp1
             string content = string.Empty;  
             foreach ( customer s in customers )
             {
-                content += string.Format("{0},{1},{2}\n",s.Gender,s.Price,s.tm.ToString("MM/dd/yyyy"));
+                content += string.Format("{0},{1},{2}\n",s.Gender,s.Price,s.tm.ToString("dd/MM/yyyy"));
             }
             File.WriteAllText(path, content);
             return true;
         }
 
-
     }
-    public enum TicketType
-    {
-        Standing_viewing = 60 ,View_tickets = 70,  VIP_Ticket = 90
-    }
+    
 
 
 
