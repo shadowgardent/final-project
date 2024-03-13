@@ -12,9 +12,78 @@
 
 
 3.โครงสร้างของโปรแกรม (Class diagram) ของโปรแกรม ใช้ Mermaid ในการเขียน ตัวอย่าง การเขียน Classdiagram ใน Markdown
+```mermaid
+classDiagram
+    Ticket <|-- customer
+    Ticket <|-- Control
+    Form1 -- TicketType
+    Form1 -- Control
+    Form1 -- customer
+    Form1 -- Ticket
 
-https://www.mermaidchart.com/app/projects/972cbc47-1f0e-4861-950a-6a41fc491d57/diagrams/435b60d8-e4de-4db0-b589-65757f5b319e/version/v0.1/edit
 
+   class Form1{
+    
+        Control control
+        List<customer> customerList 
+        Ticket ticket  
+        +Show_all()
+        +clear_all()
+        button1_Click()
+        TK_Click()
+        TM_Click()
+        save_Click()
+        button1_Click_1()
+        change()
+    }
+
+
+   class Ticket {
+        -DateTime tm
+        +DateTime time_stamp()
+        +Ticket(time_stamp: DateTime)
+        +Ticket()
+        +bool WriteF(customers: List<customer>): bool
+    }
+
+   class customer{
+      
+      +customer(gender: string, price: int, now: DateTime)
+      -string gender
+      -int price
+   }
+  
+
+    
+   class Control{
+        +ticket
+        +buyticket()
+        +buyticketnr()
+        +buyticketst()
+    
+    }
+
+   class TicketType {
+        +Standing_viewing: int
+        +View_tickets: int
+        +VIP_Ticket: int
+    }
+
+   class Form1 {
+        -Control Control
+        -List<customer> customerList
+        -Ticket ticket
+        +Form1()
+        +Show_all(): void
+        +clear_all(): void
+        +button1_Click(sender: object, e: EventArgs): void
+        +TK_Click(sender: object, e: EventArgs): void
+        +TM_Click(sender: object, e: EventArgs): void
+        +Form1_Load(sender: object, e: EventArgs): void
+        +save_Click(sender: object, e: EventArgs): void
+        +button1_Click_1(sender: object, e: EventArgs): void
+    }
+```
 4.ชื่อของผู้พัฒนาโปรแกรม
 นาย นวพรหม ภูผาผิว 663450040-2
  
