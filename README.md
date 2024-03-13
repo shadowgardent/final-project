@@ -70,6 +70,12 @@ class Form1 {
         +bool WriteF(customers: List<customer>): bool
     }
 
+
+
+
+
+
+
    class customer{
       
       +customer(gender: string, price: int, now: DateTime)
