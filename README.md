@@ -38,6 +38,22 @@ classDiagram
     }
 
 
+class Form1 {
+        -Control Control
+        -List<customer> customerList
+        -Ticket ticket
+        +Form1()
+        +Show_all(): void
+        +clear_all(): void
+        +button1_Click(sender: object, e: EventArgs): void
+        +TK_Click(sender: object, e: EventArgs): void
+        +TM_Click(sender: object, e: EventArgs): void
+        +Form1_Load(sender: object, e: EventArgs): void
+        +save_Click(sender: object, e: EventArgs): void
+        +button1_Click_1(sender: object, e: EventArgs): void
+    }
+
+
    class Ticket {
         -DateTime tm
         +DateTime time_stamp()
@@ -69,20 +85,7 @@ classDiagram
         +VIP_Ticket: int
     }
 
-   class Form1 {
-        -Control Control
-        -List<customer> customerList
-        -Ticket ticket
-        +Form1()
-        +Show_all(): void
-        +clear_all(): void
-        +button1_Click(sender: object, e: EventArgs): void
-        +TK_Click(sender: object, e: EventArgs): void
-        +TM_Click(sender: object, e: EventArgs): void
-        +Form1_Load(sender: object, e: EventArgs): void
-        +save_Click(sender: object, e: EventArgs): void
-        +button1_Click_1(sender: object, e: EventArgs): void
-    }
+   
 ```
 4.ชื่อของผู้พัฒนาโปรแกรม
 นาย นวพรหม ภูผาผิว 663450040-2
