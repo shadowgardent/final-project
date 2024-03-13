@@ -17,12 +17,12 @@ classDiagram
     Ticket <|-- customer
     Ticket <|-- Control
     Form1 -- TicketType
-    Form1 -- Control
     Form1 -- customer
     Form1 -- Ticket
+    Form1 -- Control
 
 
-   class Form1{
+    class Form1{
     
         Control control
         List<customer> customerList 
@@ -38,7 +38,38 @@ classDiagram
     }
 
 
-class Form1 {
+    class Ticket {
+        -DateTime tm
+        +DateTime time_stamp()
+        +Ticket(time_stamp: DateTime)
+        +Ticket()
+        +bool WriteF(customers: List<customer>): bool
+    }
+
+    class customer{
+      
+      +customer(gender: string, price: int, now: DateTime)
+      -string gender
+      -int price
+    }
+  
+
+    
+    class Control{
+        +ticket
+        +buyticket()
+        +buyticketnr()
+        +buyticketst()
+    
+    }
+
+     class TicketType {
+        +Standing_viewing: int
+        +View_tickets: int
+        +VIP_Ticket: int
+    }
+
+    class Form1 {
         -Control Control
         -List<customer> customerList
         -Ticket ticket
@@ -52,47 +83,6 @@ class Form1 {
         +save_Click(sender: object, e: EventArgs): void
         +button1_Click_1(sender: object, e: EventArgs): void
     }
-
-
-
-   class TicketType {
-        +Standing_viewing: int
-        +View_tickets: int
-        +VIP_Ticket: int
-    }
-
-
-   class Ticket {
-        -DateTime tm
-        +DateTime time_stamp()
-        +Ticket(time_stamp: DateTime)
-        +Ticket()
-        +bool WriteF(customers: List<customer>): bool
-    }
-
-  
-
-    
-   class Control{
-        +ticket
-        +buyticket()
-        +buyticketnr()
-        +buyticketst()
-    
-    }
-
-
-
-  class customer{
-      
-      +customer(gender: string, price: int, now: DateTime)
-      -string gender
-      -int price
-   }
-
-
-
-   
 ```
 4.ชื่อของผู้พัฒนาโปรแกรม
 นาย นวพรหม ภูผาผิว 663450040-2
