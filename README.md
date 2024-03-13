@@ -70,18 +70,6 @@ class Form1 {
         +bool WriteF(customers: List<customer>): bool
     }
 
-
-
-
-
-
-
-   class customer{
-      
-      +customer(gender: string, price: int, now: DateTime)
-      -string gender
-      -int price
-   }
   
 
     
@@ -92,6 +80,15 @@ class Form1 {
         +buyticketst()
     
     }
+
+
+
+  class customer{
+      
+      +customer(gender: string, price: int, now: DateTime)
+      -string gender
+      -int price
+   }
 
 
 
