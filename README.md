@@ -54,6 +54,14 @@ class Form1 {
     }
 
 
+
+   class TicketType {
+        +Standing_viewing: int
+        +View_tickets: int
+        +VIP_Ticket: int
+    }
+
+
    class Ticket {
         -DateTime tm
         +DateTime time_stamp()
@@ -79,11 +87,7 @@ class Form1 {
     
     }
 
-   class TicketType {
-        +Standing_viewing: int
-        +View_tickets: int
-        +VIP_Ticket: int
-    }
+
 
    
 ```
