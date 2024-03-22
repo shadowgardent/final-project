@@ -1,3 +1,5 @@
+﻿using System.Diagnostics;
+
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
@@ -5,60 +7,71 @@ namespace WinFormsApp1
         Control Control;
         List<customer> customerList = new List<customer>();
         Ticket ticket = new Ticket();
+        int price = 0;
 
 
         public Form1()
         {
             InitializeComponent();
             Control = new Control();
-            comboBox1.Items.Add("Male");
+            comboBox1.Items.Add("Male");//เพศ
             comboBox1.Items.Add("Female");
             comboBox1.Items.Add("Other");
-            comboBox2.Items.Add(60);
+            comboBox2.Items.Add(60);//ราคา
             comboBox2.Items.Add(70);
             comboBox2.Items.Add(90);
 
         }
 
-        private void Show_all()
+        private void Show_all() //โชว์บัตรทั้งหมด
         {
             TK.Show();
             DMFES.Show();
             TM.Show();
         }
 
-        private void clearall()
+        private void clearall() //เคลียข้อมูลคนที่ซื้อก่อนหน้า
         {
             
-            comboBox1.Text = "Gender";
-            comboBox2.Text = "Price";
+            comboBox1.Text = "Gender"; //เพศ
+            comboBox2.Text = "Price"; //ราคา
+              int price = 0;
         }
 
-        private void change(int price , int ticket)
+        private void change(int price , int ticket)  //เงินทอน
         {
-            int change = price - ticket;
+            int change = price - ticket;//ราคาเงิน - ราคาตั๋ว
             MessageBox.Show($"Your change = {change}");
         }
         
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)  //ปุ่มราคา70
         {
-            int price = (int)comboBox2.SelectedItem;
+            //เงิน == จำนวนCOMBOBOXที่เลือก 
+            int price;
+            bool canParse = int.TryParse(comboBox2.Text, out price);
+            if (!canParse)
+            {
+                MessageBox.Show("กรุณาป้อนจำนวนเงิน");
+                return;
+            }
             bool canbuy = Control.buyticketnr(price);
             if (canbuy)
             {
                 pictureBox1.Image = Properties.Resources.normalTicket;
 
-                if (price == Control.View_tickets)
+                if (price >= Control.View_tickets)
                 {
-                    MessageBox.Show("Buy suc");
+                    MessageBox.Show("Buy success");
+                    change(price, Control.View_tickets);
                     Show_all();
                     clearall();
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Buy suc");
-                    change(price , Control.View_tickets);
+                    MessageBox.Show("Unsuccessful purchase");
+                   
                     clearall();
 
                 }
@@ -71,9 +84,15 @@ namespace WinFormsApp1
 
         }
 
-        private void TK_Click(object sender, EventArgs e)
+        private void TK_Click(object sender, EventArgs e) //ปุ่มVIP
         {
-            int price = (int)comboBox2.SelectedItem;
+            int price;
+            bool canParse = int.TryParse(comboBox2.Text, out price);
+            if (!canParse)
+            {
+                MessageBox.Show("กรุณาป้อนจำนวนเงิน");
+                return;
+            }
             bool canbuy = Control.buyticket(price);
             if (canbuy)
             {
@@ -83,13 +102,13 @@ namespace WinFormsApp1
 
                 if (price == Control.VIP_Ticket)
                 {
-                    MessageBox.Show("Buy suc");
+                    MessageBox.Show("Buy success");
                     Show_all();
                     clearall();
                 }
                 else
                 {
-                    MessageBox.Show("Buy suc");
+                    MessageBox.Show("Unsuccessful purchase");
                     change(price, Control.VIP_Ticket);
                     clearall();
                 }
@@ -100,24 +119,35 @@ namespace WinFormsApp1
             }
 
         }
+        
+   
 
-        private void TM_Click(object sender, EventArgs e)
+        private void TM_Click(object sender, EventArgs e) // ปุ่ม60
         {
-            int price = (int)comboBox2.SelectedItem;
+            int price;
+            bool canParse = int.TryParse(comboBox2.Text , out price);
+            if (!canParse)
+            {
+                MessageBox.Show("กรุณาใส่จำนวนเงิน");
+                return;
+            }
             bool canbuy = Control.buyticketst(price);
             if (canbuy)
             {
+               
                 pictureBox1.Image = Properties.Resources.standingTicket;
-
-                if (price == Control.Standing_viewing)
+                if (price >= Control.Standing_viewing)
                 {
-                    MessageBox.Show("Buy suc");
                     Show_all();
                     clearall();
+                    MessageBox.Show("Buy success");
+                    change(price, Control.Standing_viewing);
+
+
                 }
                 else
                 {
-                    MessageBox.Show("Buy suc");
+                    MessageBox.Show("Buy success");
                     change(price, Control.Standing_viewing);
                     clearall();
                 }
@@ -127,7 +157,10 @@ namespace WinFormsApp1
             }
             else
             {
+               
             }
+
+
 
         }
 
@@ -139,8 +172,13 @@ namespace WinFormsApp1
         private void save_Click(object sender, EventArgs e)
         {
             string gender = comboBox1.SelectedItem.ToString();
-            int price = (int)comboBox2.SelectedItem;
-
+            int price;
+            bool canParse = int.TryParse(comboBox2.Text, out price);
+            if (!canParse)
+            {
+                MessageBox.Show("กรุณาป้อนจำนวนเงิน");
+                return;
+            }
 
             customer customer = new customer(gender, price, ticket.time_stamp());
             customerList.Add(customer);
@@ -164,7 +202,7 @@ namespace WinFormsApp1
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)  //เขียนไฟล์csv
         {
             bool s = ticket.WriteF(customerList);
         }

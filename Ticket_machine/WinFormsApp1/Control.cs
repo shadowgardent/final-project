@@ -10,7 +10,11 @@ namespace WinFormsApp1
     public class Control : Ticket
     {
 
-       private int standing_viewing = 60, view_tickets = 70, vip_Ticket = 90;
+       private int standing_viewing = 60, view_tickets = 70, vip_Ticket = 90;  // ประกาศตัวแปรสำหรับเก็บค่าราคาของตั๋วแต่ละประเภท
+
+
+
+        //เข้าถึงและกำหนดค่าของตัวแปรแต่ละประเภทได้โดยตรง |  getter และ setter มีการใช้งานเพียงแค่การส่งค่าไปยังตัวแปรและคืนค่าของตัวแปรนั้นๆ โดยไม่มีการประมวลผลเพิ่มเติม
 
         public int Standing_viewing { get => standing_viewing; set => standing_viewing = value; }
         public int View_tickets { get => view_tickets; set => view_tickets = value; }
@@ -43,7 +47,6 @@ namespace WinFormsApp1
                 return false;
             }
         }
-
         public bool buyticketst(int price)
         {
             if (price >= 60)
