@@ -17,9 +17,9 @@ classDiagram
     Ticket <|-- customer
     Ticket <|-- Control
     Form1 -- TicketType
-    Form1 -- customer
-    Form1 -- Ticket
-    Form1 -- Control
+    Form1 <|-- customer
+    Form1 <|-- Ticket
+    Form1 <|-- Control
 
 
     class Form1{
